@@ -1,0 +1,168 @@
+
+[
+  {
+    "id": "1",
+    "name": "Augmentin 625 Duo Tablet",
+    "price": "223.42",
+    "is_discontinued": false,
+    "manufacturer_name": "Glaxo SmithKline Pharmaceuticals Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 10 tablets",
+    "short_composition1": "Amoxycillin (500mg)",
+    "short_composition2": "Clavulanic Acid (125mg)"
+  },
+  {
+    "id": "2",
+    "name": "Crocin Advance Tablet",
+    "price": "29.35",
+    "is_discontinued": false,
+    "manufacturer_name": "GlaxoSmithKline Pharmaceuticals Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 15 tablets",
+    "short_composition1": "Paracetamol (500mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "3",
+    "name": "Azithral 500 Tablet",
+    "price": "121.25",
+    "is_discontinued": false,
+    "manufacturer_name": "Alembic Pharmaceuticals Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 5 tablets",
+    "short_composition1": "Azithromycin (500mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "4",
+    "name": "Shelcal 500mg Tablet",
+    "price": "109.40",
+    "is_discontinued": false,
+    "manufacturer_name": "Torrent Pharmaceuticals Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 15 tablets",
+    "short_composition1": "Calcium Carbonate (1250mg)",
+    "short_composition2": "Vitamin D3 (250IU)"
+  },
+  {
+    "id": "5",
+    "name": "Ecosprin 75mg Tablet",
+    "price": "5.64",
+    "is_discontinued": false,
+    "manufacturer_name": "USV Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 14 tablets",
+    "short_composition1": "Aspirin (75mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "6",
+    "name": "Dolo 650 Tablet",
+    "price": "26.40",
+    "is_discontinued": false,
+    "manufacturer_name": "Micro Labs Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 15 tablets",
+    "short_composition1": "Paracetamol (650mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "7",
+    "name": "Pan D Capsule",
+    "price": "160.30",
+    "is_discontinued": false,
+    "manufacturer_name": "Alkem Laboratories Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 15 capsules",
+    "short_composition1": "Pantoprazole (40mg)",
+    "short_composition2": "Domperidone (30mg)"
+  },
+  {
+    "id": "8",
+    "name": "Amlong 5 Tablet",
+    "price": "58.16",
+    "is_discontinued": false,
+    "manufacturer_name": "Micro Labs Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 10 tablets",
+    "short_composition1": "Amlodipine (5mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "9",
+    "name": "Pantocid 40mg Tablet",
+    "price": "131.90",
+    "is_discontinued": false,
+    "manufacturer_name": "Sun Pharmaceutical Industries Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 10 tablets",
+    "short_composition1": "Pantoprazole (40mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "10",
+    "name": "Thyronorm 50mcg Tablet",
+    "price": "95.32",
+    "is_discontinued": false,
+    "manufacturer_name": "Abbott India Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 100 tablets",
+    "short_composition1": "Levothyroxine (50mcg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "11",
+    "name": "Glycomet 500mg Tablet SR",
+    "price": "33.60",
+    "is_discontinued": false,
+    "manufacturer_name": "USV Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 10 tablets",
+    "short_composition1": "Metformin (500mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "12",
+    "name": "Telma 40mg Tablet",
+    "price": "108.30",
+    "is_discontinued": false,
+    "manufacturer_name": "Glenmark Pharmaceuticals Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 10 tablets",
+    "short_composition1": "Telmisartan (40mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "13",
+    "name": "Neurobion Forte Tablet",
+    "price": "78.07",
+    "is_discontinued": false,
+    "manufacturer_name": "Merck Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 30 tablets",
+    "short_composition1": "Vitamin B1 (10mg) + Vitamin B6 (3mg)",
+    "short_composition2": "Vitamin B12 (15mcg)"
+  },
+  {
+    "id": "14",
+    "name": "Calpol 500mg Tablet",
+    "price": "18.52",
+    "is_discontinued": false,
+    "manufacturer_name": "GlaxoSmithKline Pharmaceuticals Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 15 tablets",
+    "short_composition1": "Paracetamol (500mg)",
+    "short_composition2": ""
+  },
+  {
+    "id": "15",
+    "name": "Montair 10mg Tablet",
+    "price": "223.25",
+    "is_discontinued": false,
+    "manufacturer_name": "Cipla Ltd",
+    "type": "allopathy",
+    "pack_size_label": "strip of 10 tablets",
+    "short_composition1": "Montelukast (10mg)",
+    "short_composition2": ""
+  }
+]
