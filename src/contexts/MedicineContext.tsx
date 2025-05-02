@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Medicine, MedicineCategory } from '../types/medicine';
+import { scheduleAllNotifications } from '../utils/notificationService';
 
 interface MedicineContextType {
   medicines: Medicine[];
@@ -31,6 +32,8 @@ export const MedicineProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   useEffect(() => {
     localStorage.setItem('medicines', JSON.stringify(medicines));
+    // Reschedule all notifications when medicines are updated
+    scheduleAllNotifications(medicines);
   }, [medicines]);
 
   useEffect(() => {
@@ -43,15 +46,15 @@ export const MedicineProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       id: Date.now().toString(),
       taken: false
     };
-    setMedicines([...medicines, newMedicine]);
+    setMedicines(prevMedicines => [...prevMedicines, newMedicine]);
   };
 
   const deleteMedicine = (id: string) => {
-    setMedicines(medicines.filter(med => med.id !== id));
+    setMedicines(prevMedicines => prevMedicines.filter(med => med.id !== id));
   };
 
   const markAsTaken = (id: string) => {
-    setMedicines(medicines.map(med => 
+    setMedicines(prevMedicines => prevMedicines.map(med => 
       med.id === id ? { ...med, taken: true } : med
     ));
     
@@ -65,7 +68,7 @@ export const MedicineProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const updateMedicine = (updatedMedicine: Medicine) => {
-    setMedicines(medicines.map(med => 
+    setMedicines(prevMedicines => prevMedicines.map(med => 
       med.id === updatedMedicine.id ? updatedMedicine : med
     ));
   };
@@ -87,6 +90,16 @@ export const MedicineProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   
   // Filter medicines for tomorrow that are taken today
   const completedMedicines = medicines.filter(med => med.taken);
+
+  // Schedule notifications when component mounts
+  useEffect(() => {
+    const initializeNotifications = async () => {
+      // Schedule notifications for all active medicines
+      scheduleAllNotifications(medicines);
+    };
+    
+    initializeNotifications();
+  }, []);
 
   return (
     <MedicineContext.Provider value={{

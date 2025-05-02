@@ -20,11 +20,11 @@ export const requestNotificationPermission = async () => {
 // Function to schedule notifications for a medicine
 export const scheduleNotification = (medicine: Medicine) => {
   const now = new Date();
-  const [hours, minutes] = medicine.time.split(':');
+  const [hours, minutes] = medicine.time.split(':').map(Number);
   
   const notificationTime = new Date();
-  notificationTime.setHours(parseInt(hours));
-  notificationTime.setMinutes(parseInt(minutes));
+  notificationTime.setHours(hours);
+  notificationTime.setMinutes(minutes);
   notificationTime.setSeconds(0);
   
   // If time has already passed today, schedule for tomorrow
@@ -34,12 +34,14 @@ export const scheduleNotification = (medicine: Medicine) => {
   
   const timeUntilNotification = notificationTime.getTime() - now.getTime();
   
+  console.log(`Scheduled notification for ${medicine.name} at ${medicine.time} (${timeUntilNotification}ms from now)`);
+  
   // Schedule notification
-  setTimeout(() => {
+  const timerId = setTimeout(() => {
     showNotification(medicine);
   }, timeUntilNotification);
   
-  return timeUntilNotification;
+  return timerId;
 };
 
 // Function to show a notification
@@ -48,6 +50,7 @@ export const showNotification = (medicine: Medicine) => {
   toast({
     title: 'Medicine Reminder',
     description: `Time to take your ${medicine.name}`,
+    duration: 10000, // Show for 10 seconds
   });
   
   // Show system notification if permission is granted
@@ -61,4 +64,16 @@ export const showNotification = (medicine: Medicine) => {
     const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
     audio.play().catch(error => console.log('Error playing sound', error));
   }
+};
+
+// Function to reschedule all notifications
+export const scheduleAllNotifications = (medicines: Medicine[]) => {
+  // Only schedule for medicines that are not taken yet
+  const activeMedicines = medicines.filter(med => !med.taken);
+  
+  activeMedicines.forEach(medicine => {
+    if (medicine.category !== 'One-time' || !medicine.taken) {
+      scheduleNotification(medicine);
+    }
+  });
 };

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +9,7 @@ import MobileContainer from '@/components/MobileContainer';
 import Navbar from '@/components/Navbar';
 import { useMedicine } from '@/contexts/MedicineContext';
 import { Card, CardContent } from '@/components/ui/card';
+import { toast } from '@/components/ui/use-toast';
 
 const MedicineDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -18,6 +19,14 @@ const MedicineDetailPage: React.FC = () => {
   
   const [image, setImage] = useState<string | undefined>(medicine?.image);
   const [time, setTime] = useState(medicine?.time || '');
+  
+  useEffect(() => {
+    // Update local state when medicine changes
+    if (medicine) {
+      setTime(medicine.time);
+      setImage(medicine.image);
+    }
+  }, [medicine]);
   
   if (!medicine) {
     return (
@@ -50,10 +59,14 @@ const MedicineDetailPage: React.FC = () => {
   };
   
   const handleTimeChange = () => {
-    if (medicine) {
+    if (medicine && time !== medicine.time) {
       updateMedicine({
         ...medicine,
         time
+      });
+      toast({
+        title: "Time Updated",
+        description: `${medicine.name} will now remind you at ${time}`,
       });
     }
   };
@@ -65,7 +78,11 @@ const MedicineDetailPage: React.FC = () => {
       const whatsappUrl = `https://wa.me/${emergencyContact}?text=${encodedMessage}`;
       window.open(whatsappUrl, '_blank');
     } else {
-      alert('Please add an emergency contact in the menu');
+      toast({
+        title: "No Emergency Contact",
+        description: "Please add an emergency contact in the menu",
+        variant: "destructive"
+      });
     }
   };
   
